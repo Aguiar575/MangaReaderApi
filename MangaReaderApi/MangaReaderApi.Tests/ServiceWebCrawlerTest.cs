@@ -17,7 +17,7 @@ public class ServiceWebCrawlerTest
     }
 
     [Fact]
-    public void Test1()
+    public void ShouldReturnOnlyOneImageSource()
     {
         IEnumerable<string> imageSources = serviceWebCrawler.GetSourceImagesFromUrl(SCRAPE_THIS, FIND_THIS_NODE);
         Assert.Single(imageSources);
