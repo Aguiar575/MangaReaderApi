@@ -5,9 +5,7 @@ VisualStudioVersion = 25.0.1700.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaReaderApi", "MangaReaderApi\MangaReaderApi.csproj", "{3A643449-A22F-4C63-B6AD-13102444DA11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaReaderApi.Domain", "MangaReaderApi.Domain\MangaReaderApi.Domain.csproj", "{D128A112-E890-4AA0-9608-E6FAE22681DB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaReaderApi.Application", "MangaReaderApi.Application\MangaReaderApi.Application.csproj", "{3D376F34-21CF-46A8-8D1B-6183AE716A9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaReaderApi.Tests", "MangaReaderApi.Tests\MangaReaderApi.Tests.csproj", "{7D8ED668-FD90-463E-9E21-604623C1C9B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +17,10 @@ Global
 		{3A643449-A22F-4C63-B6AD-13102444DA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A643449-A22F-4C63-B6AD-13102444DA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A643449-A22F-4C63-B6AD-13102444DA11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D128A112-E890-4AA0-9608-E6FAE22681DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D128A112-E890-4AA0-9608-E6FAE22681DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D128A112-E890-4AA0-9608-E6FAE22681DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D128A112-E890-4AA0-9608-E6FAE22681DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D376F34-21CF-46A8-8D1B-6183AE716A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D376F34-21CF-46A8-8D1B-6183AE716A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D376F34-21CF-46A8-8D1B-6183AE716A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D376F34-21CF-46A8-8D1B-6183AE716A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8ED668-FD90-463E-9E21-604623C1C9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8ED668-FD90-463E-9E21-604623C1C9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8ED668-FD90-463E-9E21-604623C1C9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8ED668-FD90-463E-9E21-604623C1C9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
