@@ -19,13 +19,13 @@
     <None Remove="Domain\Interfaces\" />
     <None Remove="Application\Services\" />
     <None Remove="HtmlAgilityPack" />
+    <None Remove="Application\Services\Adapters\" />
+    <None Remove="Application\Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\ValueObjects\" />
-    <Folder Include="Application\" />
     <Folder Include="Domain\Interfaces\" />
-    <Folder Include="Application\Services\" />
   </ItemGroup>
 </Project>

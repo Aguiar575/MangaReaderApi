@@ -2,6 +2,6 @@
 
 public interface IServiceWebCrawler
 {
-    IEnumerable<string> GetSourceImagesFromUrl(string url, string imgHtmlNode);
+    IEnumerable<string> GetImagesFromUrl(string url, string imgHtmlNode);
 }
 

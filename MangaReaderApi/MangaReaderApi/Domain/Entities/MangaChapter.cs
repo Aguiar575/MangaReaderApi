@@ -2,9 +2,9 @@
 
 namespace MangaReaderApi.Domain.Entities;
 
-public class MangaChapter
+public class Chapter
 {
-    public MangaChapter(string mangaName,
+    public Chapter(string mangaName,
                         int chapterNumber,
                         bool isFinalChapter,
                         ChapterContent content)

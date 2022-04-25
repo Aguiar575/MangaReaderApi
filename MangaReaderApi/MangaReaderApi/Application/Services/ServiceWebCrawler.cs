@@ -6,7 +6,7 @@ namespace MangaReaderApi.Application.Services;
 public class ServiceWebCrawler : IServiceWebCrawler
 {
 
-    public IEnumerable<string> GetSourceImagesFromUrl(string url, string imgHtmlNode)
+    public IEnumerable<string> GetImagesFromUrl(string url, string imgHtmlNode)
     {
         HtmlDocument html = GetHtmlFromUrl(url);
         return ExtractImagesFromUrl(html, imgHtmlNode);
