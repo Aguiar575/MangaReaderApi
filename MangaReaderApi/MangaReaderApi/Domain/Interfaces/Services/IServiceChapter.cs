@@ -1,9 +1,8 @@
-﻿using MangaReaderApi.Domain.Entities;
+﻿using MangaReaderApi.Domain.Dto;
 
 namespace MangaReaderApi.Domain.Interfaces.Services;
 
 public interface IServiceChapter
 {
-    IEnumerable<byte[]> GetChapterContent();
-    Chapter GetChapter(string chapterUrl, string imgHtmlNode);
+    bool DownloadChapter(GetMangaRequestDto mangaRequest);
 }

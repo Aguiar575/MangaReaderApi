@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,8 @@
     <None Remove="Application\Services\Adapters\" />
     <None Remove="Application\Utils\" />
     <None Remove="Domain\Exceptions\" />
+    <None Remove="Domain\Dto\" />
+    <None Remove="Newtonsoft.Json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
@@ -29,5 +32,6 @@
     <Folder Include="Domain\ValueObjects\" />
     <Folder Include="Domain\Interfaces\" />
     <Folder Include="Domain\Exceptions\" />
+    <Folder Include="Domain\Dto\" />
   </ItemGroup>
 </Project>
