@@ -1,4 +1,6 @@
-﻿namespace MangaReaderApi.Application.Utils;
+﻿using MangaReaderApi.Domain.Exceptions;
+
+namespace MangaReaderApi.Application.Utils;
 
 public static class WebContentDownloader
 {
@@ -9,15 +11,14 @@ public static class WebContentDownloader
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.GetAsync(imageUrl);
-                if (response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode
+                    && ImageTools.IsImage(response.Content.ReadAsByteArrayAsync().Result))
                     return response.Content.ReadAsByteArrayAsync().Result;
             }
         }
         catch
         {
-          //TODO
-          //Logs Here
-          //Maybe ex...
+            throw new ImageNotFoundException();
         }
 
         return new byte[] { };

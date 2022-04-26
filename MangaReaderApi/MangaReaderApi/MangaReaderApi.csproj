@@ -21,11 +21,13 @@
     <None Remove="HtmlAgilityPack" />
     <None Remove="Application\Services\Adapters\" />
     <None Remove="Application\Utils\" />
+    <None Remove="Domain\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\ValueObjects\" />
     <Folder Include="Domain\Interfaces\" />
+    <Folder Include="Domain\Exceptions\" />
   </ItemGroup>
 </Project>
