@@ -25,6 +25,7 @@
     <None Remove="Domain\Exceptions\" />
     <None Remove="Domain\Dto\" />
     <None Remove="Newtonsoft.Json" />
+    <None Remove="Domain\Interfaces\utils\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
@@ -33,5 +34,6 @@
     <Folder Include="Domain\Interfaces\" />
     <Folder Include="Domain\Exceptions\" />
     <Folder Include="Domain\Dto\" />
+    <Folder Include="Domain\Interfaces\utils\" />
   </ItemGroup>
 </Project>

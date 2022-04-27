@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using MangaReaderApi.Application.Services;
+using MangaReaderApi.Application.Utils;
 using MangaReaderApi.Domain.Interfaces.Services;
+using MangaReaderApi.Domain.Interfaces.utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<IServiceWebCrawler, ServiceWebCrawler>();
+builder.Services.AddTransient<IServiceJasonReader, ServiceJasonReader>();
+builder.Services.AddTransient<IReader, Reader>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
