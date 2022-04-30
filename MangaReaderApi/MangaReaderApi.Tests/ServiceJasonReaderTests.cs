@@ -18,7 +18,7 @@ public class ServiceJasonReaderTest
     MemoryStream fakeMemoryStream = new MemoryStream(fakeFileBytes);
 
     IList<GetMangaRequestDto> comparisonDto = new List<GetMangaRequestDto>
-        { new GetMangaRequestDto("sourceName", "//div/img") };
+        { new GetMangaRequestDto("SourceName", "//div/img") };
 
     [Fact]
     public void ShouldReturnEmptyDtoList()
