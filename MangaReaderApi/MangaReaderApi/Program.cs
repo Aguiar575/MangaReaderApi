@@ -9,9 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddTransient<IReader, Reader>();
 builder.Services.AddTransient<IServiceWebCrawler, ServiceWebCrawler>();
 builder.Services.AddTransient<IServiceJasonReader, ServiceJasonReader>();
-builder.Services.AddTransient<IReader, Reader>();
+builder.Services.AddHttpClient<IServiceWebContentReader, ServiceWebContentReader>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
