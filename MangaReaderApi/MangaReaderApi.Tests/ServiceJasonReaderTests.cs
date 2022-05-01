@@ -11,7 +11,7 @@ using Xunit;
 
 namespace MangaReaderApi.Tests;
 
-public class ServiceJasonReaderTest
+public class ServiceJasonReaderTests
 {
     static string fakeFileContents = "[{ 'SourceName': 'SourceName', 'HtmlImageNode': '//div/img' }]";
     static byte[] fakeFileBytes = Encoding.UTF8.GetBytes(fakeFileContents);

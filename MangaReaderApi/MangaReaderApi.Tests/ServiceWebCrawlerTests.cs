@@ -5,13 +5,13 @@ using Xunit;
 
 namespace MangaReaderApi.Tests;
 
-public class ServiceWebCrawlerTest
+public class ServiceWebCrawlerTests
 {
     private readonly IServiceWebCrawler serviceWebCrawler;
     private const string SCRAPE_THIS = "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html";
     private const string FIND_THIS_NODE = "//div//img";
 
-    public ServiceWebCrawlerTest()
+    public ServiceWebCrawlerTests()
     {
         serviceWebCrawler = new ServiceWebCrawler();
     }

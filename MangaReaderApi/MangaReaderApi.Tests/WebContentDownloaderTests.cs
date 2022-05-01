@@ -4,7 +4,7 @@ using Xunit;
 
 namespace MangaReaderApi.Tests;
 
-public class WebContentDownloaderTest
+public class WebContentDownloaderTests
 {
     private const string IMAGE_URL = "https://books.toscrape.com/media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg";
     private const string URL_WITHOUT_IMAGE = "https://blank.org";
