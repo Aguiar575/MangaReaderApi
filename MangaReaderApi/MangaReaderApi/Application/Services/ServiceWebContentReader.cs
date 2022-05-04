@@ -23,7 +23,7 @@ public class ServiceWebContentReader : IServiceWebContentReader
         }
         catch
         {
-            throw new ImageNotFoundException();
+            throw new ImageUrlNotFoundException();
         }
 
         return new byte[] { };

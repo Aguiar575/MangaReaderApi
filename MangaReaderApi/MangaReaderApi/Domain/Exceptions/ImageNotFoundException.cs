@@ -1,6 +1,6 @@
 ﻿namespace MangaReaderApi.Domain.Exceptions;
 
-public class ImageNotFoundException : Exception
+public class ImageUrlNotFoundException : Exception
 {
 }
 

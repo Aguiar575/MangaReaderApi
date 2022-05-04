@@ -36,7 +36,7 @@ public class ServiceWebContentReaderTests
     [Fact]
     public void ShouldThrowImageNotFoundException()
     {
-        var ex = Assert.ThrowsAsync<ImageNotFoundException>(() => service.GetImageBytes(""));
-        Assert.IsType<ImageNotFoundException>(ex.Result);
+        var ex = Assert.ThrowsAsync<ImageUrlNotFoundException>(() => service.GetImageBytes(""));
+        Assert.IsType<ImageUrlNotFoundException>(ex.Result);
     }
 }
