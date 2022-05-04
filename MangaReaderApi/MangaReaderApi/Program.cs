@@ -1,8 +1,7 @@
-﻿using System.Reflection;
-using MangaReaderApi.Application.Services;
-using MangaReaderApi.Application.Utils;
-using MangaReaderApi.Domain.Interfaces.Services;
+﻿using MangaReaderApi.Domain.Interfaces.Services;
 using MangaReaderApi.Domain.Interfaces.utils;
+using MangaReaderApi.Domain.Services;
+using MangaReaderApi.Domain.utils;
 
 var builder = WebApplication.CreateBuilder(args);
 

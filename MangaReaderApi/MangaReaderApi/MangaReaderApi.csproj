@@ -8,32 +8,19 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Domain\" />
-    <None Remove="Domain\Entities\" />
-    <None Remove="Domain\ValueObjects\" />
     <None Remove="Application\" />
-    <None Remove="Domain\Interfaces\" />
     <None Remove="Application\Services\" />
     <None Remove="HtmlAgilityPack" />
     <None Remove="Application\Services\Adapters\" />
-    <None Remove="Application\Utils\" />
-    <None Remove="Domain\Exceptions\" />
-    <None Remove="Domain\Dto\" />
     <None Remove="Newtonsoft.Json" />
-    <None Remove="Domain\Interfaces\utils\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\" />
-    <Folder Include="Domain\Entities\" />
-    <Folder Include="Domain\ValueObjects\" />
-    <Folder Include="Domain\Interfaces\" />
-    <Folder Include="Domain\Exceptions\" />
-    <Folder Include="Domain\Dto\" />
-    <Folder Include="Domain\Interfaces\utils\" />
+    <ProjectReference Include="..\MangaReaderApi.Domain\MangaReaderApi.Domain.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

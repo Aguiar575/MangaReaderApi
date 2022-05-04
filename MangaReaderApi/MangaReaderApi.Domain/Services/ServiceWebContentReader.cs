@@ -1,7 +1,8 @@
 ﻿using MangaReaderApi.Domain.Exceptions;
 using MangaReaderApi.Domain.Interfaces.Services;
+using MangaReaderApi.Domain.utils;
 
-namespace MangaReaderApi.Application.Utils;
+namespace MangaReaderApi.Domain.Services;
 
 public class ServiceWebContentReader : IServiceWebContentReader
 {
@@ -18,7 +19,7 @@ public class ServiceWebContentReader : IServiceWebContentReader
         {
             HttpResponseMessage response = await _httpClient.GetAsync(imageUrl);
             if (response.IsSuccessStatusCode
-                && ImageTools.IsImage(response.Content.ReadAsByteArrayAsync().Result))
+                && response.Content.ReadAsByteArrayAsync().Result.IsImage())
                 return response.Content.ReadAsByteArrayAsync().Result;
         }
         catch
@@ -29,4 +30,3 @@ public class ServiceWebContentReader : IServiceWebContentReader
         return new byte[] { };
     }
 }
-

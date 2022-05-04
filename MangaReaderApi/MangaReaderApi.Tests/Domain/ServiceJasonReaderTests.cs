@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using MangaReaderApi.Application.Utils;
 using MangaReaderApi.Domain.Dto;
-using MangaReaderApi.Domain.Interfaces.Services;
 using MangaReaderApi.Domain.Interfaces.utils;
+using MangaReaderApi.Domain.Services;
 using Moq;
 using Xunit;
 
-namespace MangaReaderApi.Tests;
+namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceJasonReaderTests
 {

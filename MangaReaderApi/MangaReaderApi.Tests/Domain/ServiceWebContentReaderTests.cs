@@ -1,17 +1,17 @@
 ﻿using System.Net.Http;
-using MangaReaderApi.Application.Utils;
 using MangaReaderApi.Domain.Exceptions;
 using MangaReaderApi.Domain.Interfaces.Services;
+using MangaReaderApi.Domain.Services;
 using Moq;
 using Xunit;
 
-namespace MangaReaderApi.Tests;
+namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceWebContentReaderTests
 {
     private const string IMAGE_URL = "https://books.toscrape.com/media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg";
     private const string URL_WITHOUT_IMAGE = "https://blank.org";
-    private readonly IServiceWebContentReader service; 
+    private readonly IServiceWebContentReader service;
 
     public ServiceWebContentReaderTests()
     {

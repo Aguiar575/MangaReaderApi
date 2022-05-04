@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using MangaReaderApi.Application.Services;
+using MangaReaderApi.Domain.Services;
 using MangaReaderApi.Domain.Interfaces.Services;
 using Xunit;
 
-namespace MangaReaderApi.Tests;
+namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceWebCrawlerTests
 {

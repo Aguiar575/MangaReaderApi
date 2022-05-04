@@ -1,7 +1,7 @@
 ﻿using MangaReaderApi.Domain.Interfaces.Services;
 using HtmlAgilityPack;
 
-namespace MangaReaderApi.Application.Services;
+namespace MangaReaderApi.Domain.Services;
 
 public class ServiceWebCrawler : IServiceWebCrawler
 {

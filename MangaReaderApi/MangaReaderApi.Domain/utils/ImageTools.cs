@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MangaReaderApi.Application.Utils;
+namespace MangaReaderApi.Domain.utils;
 
 public static class ImageTools
 {

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using MangaReaderApi.Application.Services;
+using MangaReaderApi.Domain.Services;
 using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Exceptions;
 using MangaReaderApi.Domain.Interfaces.Services;
 using Moq;
 using Xunit;
 
-namespace MangaReaderApi.Tests;
+namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceSourceResolverTests
 {
@@ -22,17 +22,17 @@ public class ServiceSourceResolverTests
         service = new ServiceSourceResolver(jsonReader.Object);
     }
 
-   [Fact]
-   public void ShouldReturnOneSource()
-   {
+    [Fact]
+    public void ShouldReturnOneSource()
+    {
         var selectedSource = service.ResolveSource("SourceName");
 
         Assert.Equal("SourceName", selectedSource.SourceName);
         Assert.Equal("//div/img", selectedSource.HtmlImageNode);
-   }
+    }
 
-   [Fact]
-   public void ShouldReturnSourceNootFoundException()
+    [Fact]
+    public void ShouldReturnSourceNootFoundException()
     {
         Assert.Throws<SourceNotFoundException>(() => service.ResolveSource(""));
     }
