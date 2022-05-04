@@ -1,5 +1,5 @@
 ﻿using MangaReaderApi.Domain.Exceptions;
-using MangaReaderApi.Domain.Interfaces.Services;
+using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.utils;
 
 namespace MangaReaderApi.Domain.Services;

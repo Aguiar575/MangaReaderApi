@@ -22,5 +22,8 @@
     <ProjectReference Include="..\MangaReaderApi.Domain\MangaReaderApi.Domain.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\MangaReaderApi.Application\MangaReaderApi.Application.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

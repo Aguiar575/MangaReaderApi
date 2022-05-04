@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MangaReaderApi.Domain.Services;
-using MangaReaderApi.Domain.Interfaces.Services;
 using Xunit;
+using MangaReaderApi.Domain.Interfaces.Services.Domain;
 
 namespace MangaReaderApi.Tests.Domain;
 

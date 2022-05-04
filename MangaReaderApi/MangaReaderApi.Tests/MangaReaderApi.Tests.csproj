@@ -24,12 +24,16 @@
   <ItemGroup>
     <ProjectReference Include="..\MangaReaderApi\MangaReaderApi.csproj" />
     <ProjectReference Include="..\MangaReaderApi.Domain\MangaReaderApi.Domain.csproj" />
+    <ProjectReference Include="..\MangaReaderApi.Application\MangaReaderApi.Application.csproj" />
+    <ProjectReference Include="..\MangaReaderApi\MangaReaderApi.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Moq" />
     <None Remove="Domain\" />
+    <None Remove="Application\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
+    <Folder Include="Application\" />
   </ItemGroup>
 </Project>

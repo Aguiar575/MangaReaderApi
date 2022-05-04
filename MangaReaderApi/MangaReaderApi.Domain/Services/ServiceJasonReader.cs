@@ -1,5 +1,5 @@
 ﻿using MangaReaderApi.Domain.Dto;
-using MangaReaderApi.Domain.Interfaces.Services;
+using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Interfaces.utils;
 using Newtonsoft.Json;
 

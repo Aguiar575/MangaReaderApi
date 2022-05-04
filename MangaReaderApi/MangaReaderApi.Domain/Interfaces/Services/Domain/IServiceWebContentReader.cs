@@ -1,5 +1,6 @@
 ﻿using System;
-namespace MangaReaderApi.Domain.Interfaces.Services;
+
+namespace MangaReaderApi.Domain.Interfaces.Services.Domain;
 
 public interface IServiceWebContentReader
 {

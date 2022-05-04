@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using MangaReaderApi.Domain.Exceptions;
-using MangaReaderApi.Domain.Interfaces.Services;
+using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Services;
 using Moq;
 using Xunit;

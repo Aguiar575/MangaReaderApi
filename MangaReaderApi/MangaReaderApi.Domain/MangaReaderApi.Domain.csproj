@@ -11,10 +11,14 @@
     <None Remove="utils\" />
     <None Remove="HtmlAgilityPack" />
     <None Remove="Newtonsoft.Json" />
+    <None Remove="Interfaces\Services\Application\" />
+    <None Remove="Interfaces\Services\Domain\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="utils\" />
+    <Folder Include="Interfaces\Services\Application\" />
+    <Folder Include="Interfaces\Services\Domain\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
