@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Interfaces.utils;
 using MangaReaderApi.Domain.Services;
+using MangaReaderApi.Domain.ValueObjects;
 using Moq;
 using Xunit;
 
@@ -15,8 +15,8 @@ public class ServiceJasonReaderTests
     static byte[] fakeFileBytes = Encoding.UTF8.GetBytes(fakeFileContents);
     MemoryStream fakeMemoryStream = new MemoryStream(fakeFileBytes);
 
-    IList<GetMangaRequestDto> comparisonDto = new List<GetMangaRequestDto>
-        { new GetMangaRequestDto("SourceName", "//div/img") };
+    IList<MangaSource> comparisonDto = new List<MangaSource>
+        { new MangaSource("SourceName", "//div/img") };
 
     [Fact]
     public void ShouldReturnEmptyDtoList()
@@ -24,7 +24,7 @@ public class ServiceJasonReaderTests
         var reader = new Mock<IReader>();
         var sut = new ServiceJasonReader(reader.Object);
 
-        IList<GetMangaRequestDto> dtoList = sut.LoadJson("");
+        IList<MangaSource> dtoList = sut.LoadJson("");
         Assert.Empty(dtoList);
     }
 
@@ -35,7 +35,7 @@ public class ServiceJasonReaderTests
         reader.Setup(sr => sr.GetReader(It.IsAny<string>())).Returns(() => new StreamReader(fakeMemoryStream));
         var sut = new ServiceJasonReader(reader.Object);
 
-        IList<GetMangaRequestDto> dtoList = sut.LoadJson("file.json");
+        IList<MangaSource> dtoList = sut.LoadJson("file.json");
         Assert.NotEmpty(dtoList);
         Assert.Equal(comparisonDto, dtoList);
     }

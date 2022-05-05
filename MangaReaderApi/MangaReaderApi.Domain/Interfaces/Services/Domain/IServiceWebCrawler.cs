@@ -1,7 +1,9 @@
-﻿namespace MangaReaderApi.Domain.Interfaces.Services.Domain;
+﻿using MangaReaderApi.Domain.Dto;
+
+namespace MangaReaderApi.Domain.Interfaces.Services.Domain;
 
 public interface IServiceWebCrawler
 {
-    IEnumerable<string> GetImagesFromUrl(string url, string imgHtmlNode);
+    IEnumerable<string> GetImagesFromChapterRequest(GetMangaChapterRequest chapterRequest);
 }
 

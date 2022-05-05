@@ -1,8 +1,8 @@
-﻿using MangaReaderApi.Domain.Dto;
+﻿using MangaReaderApi.Domain.ValueObjects;
 
 namespace MangaReaderApi.Domain.Interfaces.Services.Domain;
 
 public interface IServiceSourceResolver
 {
-    GetMangaRequestDto ResolveSource(string sourceName);
+    MangaSource ResolveSource(string sourceName);
 }

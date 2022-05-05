@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using MangaReaderApi.Domain.Services;
-using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Exceptions;
 using Moq;
 using Xunit;
 using MangaReaderApi.Domain.Interfaces.Services.Domain;
+using MangaReaderApi.Domain.ValueObjects;
 
 namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceSourceResolverTests
 {
-    IList<GetMangaRequestDto> requestDto = new List<GetMangaRequestDto>
-        { new GetMangaRequestDto("SourceName", "//div/img") };
+    IList<MangaSource> requestDto = new List<MangaSource>
+        { new MangaSource("SourceName", "//div/img") };
 
     private IServiceSourceResolver service;
 

@@ -1,9 +1,9 @@
-﻿using MangaReaderApi.Domain.Dto;
+﻿using MangaReaderApi.Domain.ValueObjects;
 
 namespace MangaReaderApi.Domain.Interfaces.Services.Domain;
 
 public interface IServiceJasonReader
 {
-    IList<GetMangaRequestDto> LoadJson(string filePath);
+    IList<MangaSource> LoadJson(string filePath);
 }
 

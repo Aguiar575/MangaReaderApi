@@ -1,15 +1,15 @@
 ﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using HtmlAgilityPack;
+using MangaReaderApi.Domain.Dto;
 
 namespace MangaReaderApi.Domain.Services;
 
 public class ServiceWebCrawler : IServiceWebCrawler
 {
-
-    public IEnumerable<string> GetImagesFromUrl(string url, string imgHtmlNode)
+    public IEnumerable<string> GetImagesFromChapterRequest(GetMangaChapterRequest chapterRequest)
     {
-        HtmlDocument html = GetHtmlFromUrl(url);
-        return ExtractImagesFromUrl(html, imgHtmlNode);
+        HtmlDocument html = GetHtmlFromUrl(chapterRequest.ChapterUrl);
+        return ExtractImagesFromUrl(html, chapterRequest.Source.HtmlImageNode);
     }
 
     private HtmlDocument GetHtmlFromUrl(string url)

@@ -1,8 +1,8 @@
-﻿using MangaReaderApi.Domain.Dto;
+﻿using MangaReaderApi.Domain.ValueObjects;
 
 namespace MangaReaderApi.Domain.Interfaces.Services.Application;
 
 public interface IServiceChapter
 {
-    bool DownloadChapter(GetMangaRequestDto mangaRequest);
+    bool SendChapterToEmail(MangaSource mangaRequest);
 }

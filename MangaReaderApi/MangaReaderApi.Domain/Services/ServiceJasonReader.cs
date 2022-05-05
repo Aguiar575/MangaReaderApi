@@ -1,6 +1,6 @@
-﻿using MangaReaderApi.Domain.Dto;
-using MangaReaderApi.Domain.Interfaces.Services.Domain;
+﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Interfaces.utils;
+using MangaReaderApi.Domain.ValueObjects;
 using Newtonsoft.Json;
 
 namespace MangaReaderApi.Domain.Services;
@@ -14,20 +14,20 @@ public class ServiceJasonReader : IServiceJasonReader
         _reader = reader;
     }
 
-    public IList<GetMangaRequestDto> LoadJson(string filePath)
+    public IList<MangaSource> LoadJson(string filePath)
     {
         try
         {
             using (StreamReader r = _reader.GetReader(filePath))
             {
                 string json = r.ReadToEnd();
-                return JsonConvert.DeserializeObject<List<GetMangaRequestDto>>(json)
-                    ?? new List<GetMangaRequestDto>();
+                return JsonConvert.DeserializeObject<List<MangaSource>>(json)
+                    ?? new List<MangaSource>();
             }
         }
         catch
         {
-            return new List<GetMangaRequestDto>();
+            return new List<MangaSource>();
         }
     }
 }
