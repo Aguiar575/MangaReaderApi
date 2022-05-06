@@ -1,31 +1,40 @@
 ﻿using System.Collections.Generic;
 using MangaReaderApi.Domain.Services;
 using Xunit;
-using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.ValueObjects;
+using MangaReaderApi.Domain.Exceptions;
 
 namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceWebCrawlerTests
 {
-    private readonly IServiceWebCrawler serviceWebCrawler;
     private const string SCRAPE_THIS = "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html";
-    private const string FIND_THIS_NODE = "//div//img";
-    private GetMangaChapterRequest MangaRequest;
-
-    public ServiceWebCrawlerTests()
-    {
-        MangaSource source = new MangaSource("MangaSource", FIND_THIS_NODE);
-        MangaRequest = new GetMangaChapterRequest(source, SCRAPE_THIS);
-        serviceWebCrawler = new ServiceWebCrawler();
-    }
 
     [Fact]
     public void ShouldReturnOnlyOneImageSource()
     {
+        var source = new MangaSource("MangaSource", "//div/img");
+        var mangaRequest = new GetMangaChapterRequest(source, SCRAPE_THIS);
+        var serviceWebCrawler = new ServiceWebCrawler();
+
+
         IEnumerable<string> imageSources = serviceWebCrawler
-            .GetImagesFromChapterRequest(MangaRequest);
+            .GetImagesFromChapterRequest(mangaRequest);
         Assert.Single(imageSources);
+    }
+
+    [Fact]
+    public void ShouldReturnImageNodeNotFoundException()
+    {
+        var source = new MangaSource("MangaSource", "");
+        var mangaRequest = new GetMangaChapterRequest(source, SCRAPE_THIS);
+        var serviceWebCrawler = new ServiceWebCrawler();
+
+
+        var ex = Assert.Throws<ImageNodeNotFoundException>
+            (() => serviceWebCrawler.GetImagesFromChapterRequest(mangaRequest));
+
+        Assert.IsType<ImageNodeNotFoundException>(ex);
     }
 }

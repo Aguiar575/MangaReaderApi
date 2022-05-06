@@ -1,6 +1,7 @@
 ﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using HtmlAgilityPack;
 using MangaReaderApi.Domain.Dto;
+using MangaReaderApi.Domain.Exceptions;
 
 namespace MangaReaderApi.Domain.Services;
 
@@ -12,7 +13,7 @@ public class ServiceWebCrawler : IServiceWebCrawler
         return ExtractImagesFromUrl(html, chapterRequest.Source.HtmlImageNode);
     }
 
-    private HtmlDocument GetHtmlFromUrl(string url)
+    private static HtmlDocument GetHtmlFromUrl(string url)
     {
         HtmlWeb web = new HtmlWeb();
         HtmlDocument htmlDocument = web.Load(url);
@@ -21,9 +22,15 @@ public class ServiceWebCrawler : IServiceWebCrawler
 
     private IEnumerable<string> ExtractImagesFromUrl(HtmlDocument html, string imgNode)
     {
-        HtmlNodeCollection linkNodes = html.DocumentNode.SelectNodes(imgNode);
-        return linkNodes.Select(node => node.Attributes["src"].Value);
+        try
+        {
+            HtmlNodeCollection linkNodes = html.DocumentNode.SelectNodes(imgNode);
+            return linkNodes.Select(node => node.Attributes["src"].Value);
+        }
+        catch(Exception)
+        {
+            throw new ImageNodeNotFoundException();
+        }
     }
-
 }
 
