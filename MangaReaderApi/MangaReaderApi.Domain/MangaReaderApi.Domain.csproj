@@ -14,6 +14,7 @@
     <None Remove="Interfaces\Services\Application\" />
     <None Remove="Interfaces\Services\Domain\" />
     <None Remove="Dto\" />
+    <None Remove="Services\Factories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -21,6 +22,7 @@
     <Folder Include="Interfaces\Services\Application\" />
     <Folder Include="Interfaces\Services\Domain\" />
     <Folder Include="Dto\" />
+    <Folder Include="Services\Factories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />

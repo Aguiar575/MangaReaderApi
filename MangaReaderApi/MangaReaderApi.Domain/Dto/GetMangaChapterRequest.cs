@@ -2,7 +2,7 @@
 
 namespace MangaReaderApi.Domain.Dto;
 
-public class GetMangaChapterRequest
+public class GetMangaChapterRequest : DtoClass
 {
     public GetMangaChapterRequest(MangaSource source, string chapterUrl)
     {
