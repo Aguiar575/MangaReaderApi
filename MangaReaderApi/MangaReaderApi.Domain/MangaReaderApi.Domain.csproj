@@ -15,7 +15,6 @@
     <None Remove="Interfaces\Services\Domain\" />
     <None Remove="Dto\" />
     <None Remove="Services\Factories\" />
-    <None Remove="Interfaces\Services\Domain\Factorie\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

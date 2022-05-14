@@ -10,7 +10,7 @@ namespace MangaReaderApi.Tests.Domain;
 
 public class ServiceSourceResolverTests
 {
-    IList<MangaSource> requestDto = new List<MangaSource>
+    IList<MangaSource> MangaSource = new List<MangaSource>
         { new MangaSource("SourceName", "//div/img") };
 
     private IServiceSourceResolver service;
@@ -18,7 +18,7 @@ public class ServiceSourceResolverTests
     public ServiceSourceResolverTests()
     {
         var jsonReader = new Mock<IServiceJasonReader>();
-        jsonReader.Setup(sr => sr.LoadJson(It.IsAny<string>())).Returns(() => requestDto);
+        jsonReader.Setup(sr => sr.LoadJson(It.IsAny<string>())).Returns(() => MangaSource);
         service = new ServiceSourceResolver(jsonReader.Object);
     }
 

@@ -13,7 +13,7 @@ public class ChapterMangaDtoFactory : IChapterMangaDtoFactory
         _serviceSourceResolver = serviceSourceResolver;
     }
 
-    public ChapterMangaDto Create(string chapterUrl, string source) =>
+    public GetMangaChapterRequest Create(string chapterUrl, string source) =>
        new GetMangaChapterRequest(_serviceSourceResolver.ResolveSource(source),
            chapterUrl);
 }
