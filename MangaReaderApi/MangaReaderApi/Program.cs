@@ -1,14 +1,16 @@
 ﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
+using MangaReaderApi.Domain.Interfaces.Services.Domain.Factorie;
 using MangaReaderApi.Domain.Interfaces.utils;
 using MangaReaderApi.Domain.Services;
+using MangaReaderApi.Domain.Services.Factories;
 using MangaReaderApi.Domain.utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddTransient<IReader, Reader>();
+builder.Services.AddTransient<IChapterMangaDtoFactory, ChapterMangaDtoFactory>();
 builder.Services.AddTransient<IServiceWebCrawler, ServiceWebCrawler>();
 builder.Services.AddTransient<IServiceJasonReader, ServiceJasonReader>();
 builder.Services.AddHttpClient<IServiceWebContentReader, ServiceWebContentReader>();
