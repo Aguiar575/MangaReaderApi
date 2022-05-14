@@ -15,6 +15,7 @@
     <None Remove="Interfaces\Services\Domain\" />
     <None Remove="Dto\" />
     <None Remove="Services\Factories\" />
+    <None Remove="iTextSharp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -28,5 +29,6 @@
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
   </ItemGroup>
 </Project>
