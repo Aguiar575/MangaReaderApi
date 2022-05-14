@@ -1,6 +1,6 @@
 ﻿namespace MangaReaderApi.Domain.Dto;
 
-public abstract class DtoClass
+public abstract class ChapterMangaDto
 {
 }
 
