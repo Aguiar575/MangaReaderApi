@@ -29,4 +29,24 @@ public class ServiceWebContentReader : IServiceWebContentReader
 
         return new byte[] { };
     }
+
+    public IEnumerable<byte[]> GetAllImageBytes(IEnumerable<string> images)
+    {
+        List<byte[]> bytes = new List<byte[]>();
+
+        var tasks = new List<Task>();
+        foreach (var image in images)
+            tasks.Add(Task.Run(() => bytes.Add(GetImageBytes(image).Result)));
+
+        try
+        {
+            Task.WaitAll(tasks.ToArray());
+        }
+        catch
+        {
+            throw new ImageUrlNotFoundException();
+        }
+
+        return bytes;
+    }
 }

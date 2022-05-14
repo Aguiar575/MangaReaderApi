@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using MangaReaderApi.Domain.Exceptions;
 using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Services;
@@ -38,5 +39,14 @@ public class ServiceWebContentReaderTests
     {
         var ex = Assert.ThrowsAsync<ImageUrlNotFoundException>(() => service.GetImageBytes(""));
         Assert.IsType<ImageUrlNotFoundException>(ex.Result);
+    }
+
+    [Fact]
+    public void ShouldReturnByteArrayList()
+    {
+        List<string> images = new List<string> { IMAGE_URL };
+        IEnumerable<byte[]> bytes = service.GetAllImageBytes(images);
+
+        Assert.NotEmpty(bytes);
     }
 }
