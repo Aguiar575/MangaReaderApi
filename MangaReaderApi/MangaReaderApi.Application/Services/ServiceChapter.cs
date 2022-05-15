@@ -16,15 +16,12 @@ public class ServiceChapter : IServiceChapter
         _serviceWebContentReader = serviceWebContentReader;
     }
 
-    public bool GetChapterPdf(GetMangaChapterRequest request)
+    public IEnumerable<byte[]> GetChapterImageBytes(GetMangaChapterRequest request)
     {
         IEnumerable<string> chapterImagesUrl = _serviceWebCrawler
             .GetImagesFromChapterRequest(request);
 
-        IEnumerable<byte[]> chapterImageBytes = _serviceWebContentReader
-            .GetAllImageBytes(chapterImagesUrl);
-
-        return true;
+        return _serviceWebContentReader.GetAllImageBytes(chapterImagesUrl);
     }
 }
 

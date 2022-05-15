@@ -4,5 +4,6 @@ namespace MangaReaderApi.Domain.Interfaces.Services.Application;
 
 public interface IServiceChapter
 {
-    bool GetChapterPdf(GetMangaChapterRequest request);
+    IEnumerable<byte[]> GetChapterImageBytes(GetMangaChapterRequest request);
 }
+

@@ -1,6 +1,6 @@
 ﻿using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Interfaces.Services.Domain;
-using MangaReaderApi.Domain.Interfaces.Services.Domain.Factorie;
+using MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
 
 namespace MangaReaderApi.Domain.Services.Factories;
 

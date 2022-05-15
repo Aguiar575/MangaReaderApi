@@ -1,5 +1,5 @@
 ﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
-using MangaReaderApi.Domain.Interfaces.Services.Domain.Factorie;
+using MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
 using MangaReaderApi.Domain.Interfaces.utils;
 using MangaReaderApi.Domain.Services;
 using MangaReaderApi.Domain.Services.Factories;

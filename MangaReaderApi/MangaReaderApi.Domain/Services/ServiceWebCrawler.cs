@@ -25,7 +25,8 @@ public class ServiceWebCrawler : IServiceWebCrawler
         try
         {
             HtmlNodeCollection linkNodes = html.DocumentNode.SelectNodes(imgNode);
-            return linkNodes.Select(node => node.Attributes["src"].Value);
+            var imageSource = linkNodes.Select(node => node.Attributes["src"].Value);
+            return imageSource;
         }
         catch(Exception)
         {
