@@ -1,4 +1,6 @@
-﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
+﻿using MangaReaderApi.Application.Services;
+using MangaReaderApi.Domain.Interfaces.Facades.Application;
+using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
 using MangaReaderApi.Domain.Interfaces.utils;
 using MangaReaderApi.Domain.Services;
@@ -14,6 +16,7 @@ builder.Services.AddTransient<IChapterMangaDtoFactory, ChapterMangaDtoFactory>()
 builder.Services.AddTransient<IServiceWebCrawler, ServiceWebCrawler>();
 builder.Services.AddTransient<IServiceJasonReader, ServiceJasonReader>();
 builder.Services.AddHttpClient<IServiceWebContentReader, ServiceWebContentReader>();
+builder.Services.AddSingleton<IChapterContentExtractor, ChapterContentExtractor>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

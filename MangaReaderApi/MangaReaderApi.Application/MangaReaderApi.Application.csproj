@@ -12,9 +12,11 @@
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="iTextSharp" />
+    <None Remove="Facades\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Facades\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />

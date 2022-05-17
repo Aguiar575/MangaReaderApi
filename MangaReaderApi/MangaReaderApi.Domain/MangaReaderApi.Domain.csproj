@@ -16,6 +16,8 @@
     <None Remove="Dto\" />
     <None Remove="Services\Factories\" />
     <None Remove="iTextSharp" />
+    <None Remove="Interfaces\Facades\" />
+    <None Remove="Interfaces\Facades\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -25,9 +27,14 @@
     <Folder Include="Dto\" />
     <Folder Include="Services\Factories\" />
     <Folder Include="Interfaces\Services\Domain\Factories\" />
+    <Folder Include="Interfaces\Facades\" />
+    <Folder Include="Interfaces\Facades\Application\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Interfaces\Services\Application\IServiceChapter.cs" />
   </ItemGroup>
 </Project>

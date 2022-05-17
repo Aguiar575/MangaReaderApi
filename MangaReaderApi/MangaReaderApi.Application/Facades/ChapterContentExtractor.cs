@@ -1,15 +1,15 @@
 ﻿using MangaReaderApi.Domain.Dto;
-using MangaReaderApi.Domain.Interfaces.Services.Application;
+using MangaReaderApi.Domain.Interfaces.Facades.Application;
 using MangaReaderApi.Domain.Interfaces.Services.Domain;
 
 namespace MangaReaderApi.Application.Services;
 
-public class ServiceChapter : IServiceChapter
+public class ChapterContentExtractor : IChapterContentExtractor
 {
     private readonly IServiceWebCrawler _serviceWebCrawler;
     private readonly IServiceWebContentReader _serviceWebContentReader;
 
-    public ServiceChapter(IServiceWebCrawler serviceWebCrawler,
+    public ChapterContentExtractor(IServiceWebCrawler serviceWebCrawler,
                           IServiceWebContentReader serviceWebContentReader)
     {
         _serviceWebCrawler = serviceWebCrawler;
@@ -18,6 +18,9 @@ public class ServiceChapter : IServiceChapter
 
     public IEnumerable<byte[]> GetChapterImageBytes(GetMangaChapterRequest request)
     {
+        if (request == null)
+            return new List<byte[]>();
+
         IEnumerable<string> chapterImagesUrl = _serviceWebCrawler
             .GetImagesFromChapterRequest(request);
 
