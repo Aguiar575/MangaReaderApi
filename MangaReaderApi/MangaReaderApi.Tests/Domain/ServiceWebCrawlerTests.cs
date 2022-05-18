@@ -23,8 +23,8 @@ public class ServiceWebCrawlerTests
         var chapterMangaDtoFactory = new ChapterMangaDtoFactory(serviceSourceResolver.Object);
         var mangaRequestDto = chapterMangaDtoFactory.Create(SCRAPE_THIS, "MangaSource");
 
-        var serviceWebCrawler = new ServiceWebCrawler();
-        IEnumerable<string> imageSources = serviceWebCrawler
+        var sut = new ServiceWebCrawler();
+        IEnumerable<string> imageSources = sut
             .GetImagesFromChapterRequest(mangaRequestDto);
 
         Assert.Single(imageSources);
@@ -40,9 +40,9 @@ public class ServiceWebCrawlerTests
         var chapterMangaDtoFactory = new ChapterMangaDtoFactory(serviceSourceResolver.Object);
         var mangaRequestDto = chapterMangaDtoFactory.Create(SCRAPE_THIS, "MangaSource");
 
-        var serviceWebCrawler = new ServiceWebCrawler();
+        var sut = new ServiceWebCrawler();
         var ex = Assert.Throws<ImageNodeNotFoundException>
-            (() => serviceWebCrawler.GetImagesFromChapterRequest(mangaRequestDto));
+            (() => sut.GetImagesFromChapterRequest(mangaRequestDto));
 
         Assert.IsType<ImageNodeNotFoundException>(ex);
     }

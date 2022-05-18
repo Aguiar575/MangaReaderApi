@@ -13,19 +13,19 @@ public class ServiceSourceResolverTests
     IList<MangaSource> MangaSource = new List<MangaSource>
         { new MangaSource("SourceName", "//div/img") };
 
-    private IServiceSourceResolver service;
+    private IServiceSourceResolver sut;
 
     public ServiceSourceResolverTests()
     {
         var jsonReader = new Mock<IServiceJasonReader>();
         jsonReader.Setup(sr => sr.LoadJson(It.IsAny<string>())).Returns(() => MangaSource);
-        service = new ServiceSourceResolver(jsonReader.Object);
+        sut = new ServiceSourceResolver(jsonReader.Object);
     }
 
     [Fact]
     public void ShouldReturnOneSource()
     {
-        var selectedSource = service.ResolveSource("SourceName");
+        var selectedSource = sut.ResolveSource("SourceName");
 
         Assert.Equal("SourceName", selectedSource.SourceName);
         Assert.Equal("//div/img", selectedSource.HtmlImageNode);
@@ -34,6 +34,6 @@ public class ServiceSourceResolverTests
     [Fact]
     public void ShouldReturnSourceNootFoundException()
     {
-        Assert.Throws<SourceNotFoundException>(() => service.ResolveSource(""));
+        Assert.Throws<SourceNotFoundException>(() => sut.ResolveSource(""));
     }
 }

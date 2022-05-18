@@ -10,10 +10,10 @@ public class ServicePdfConversorTests
     [Fact]
     public void ShouldCreatePdfAndReturnTrue()
     {
-        var service = new Mock<IServicePdfConversor>();
+        var sut = new Mock<IServicePdfConversor>();
         var bytes = new List<byte[]>();
 
-        var pdf = service.Object.CreateChapterPdf(bytes);
+        var pdf = sut.Object.CreateChapterPdf(bytes);
 
         Assert.True(pdf);
     }

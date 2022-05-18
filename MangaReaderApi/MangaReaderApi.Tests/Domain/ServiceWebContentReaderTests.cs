@@ -12,32 +12,32 @@ public class ServiceWebContentReaderTests
 {
     private const string IMAGE_URL = "https://books.toscrape.com/media/cache/fe/72/fe72f0532301ec28892ae79a629a293c.jpg";
     private const string URL_WITHOUT_IMAGE = "https://blank.org";
-    private readonly IServiceWebContentReader service;
+    private readonly IServiceWebContentReader sut;
 
     public ServiceWebContentReaderTests()
     {
         var httpClientFactory = new Mock<HttpClient>();
-        service = new ServiceWebContentReader(httpClientFactory.Object);
+        sut = new ServiceWebContentReader(httpClientFactory.Object);
     }
 
     [Fact]
     public void ShouldReturnByteArray()
     {
-        byte[] bytes = service.GetImageBytes(IMAGE_URL).Result;
+        byte[] bytes = sut.GetImageBytes(IMAGE_URL).Result;
         Assert.NotEmpty(bytes);
     }
 
     [Fact]
     public void ShouldReturnEmptyByteArray()
     {
-        byte[] bytes = service.GetImageBytes(URL_WITHOUT_IMAGE).Result;
+        byte[] bytes = sut.GetImageBytes(URL_WITHOUT_IMAGE).Result;
         Assert.Empty(bytes);
     }
 
     [Fact]
     public void ShouldThrowImageNotFoundException()
     {
-        var ex = Assert.ThrowsAsync<ImageUrlNotFoundException>(() => service.GetImageBytes(""));
+        var ex = Assert.ThrowsAsync<ImageUrlNotFoundException>(() => sut.GetImageBytes(""));
         Assert.IsType<ImageUrlNotFoundException>(ex.Result);
     }
 
@@ -45,7 +45,7 @@ public class ServiceWebContentReaderTests
     public void ShouldReturnByteArrayList()
     {
         List<string> images = new List<string> { IMAGE_URL };
-        IEnumerable<byte[]> bytes = service.GetAllImageBytes(images);
+        IEnumerable<byte[]> bytes = sut.GetAllImageBytes(images);
 
         Assert.NotEmpty(bytes);
     }
