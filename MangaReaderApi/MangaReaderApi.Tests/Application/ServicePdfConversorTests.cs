@@ -7,15 +7,6 @@ namespace MangaReaderApi.Tests.Application;
 
 public class ServicePdfConversorTests
 {
-    [Fact]
-    public void ShouldCreatePdfAndReturnTrue()
-    {
-        var sut = new Mock<IServicePdfConversor>();
-        var bytes = new List<byte[]>();
-
-        var pdf = sut.Object.CreateChapterPdf(bytes);
-
-        Assert.True(pdf);
-    }
+   
 }
 

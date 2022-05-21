@@ -1,12 +1,31 @@
-﻿using MangaReaderApi.Domain.Interfaces.Services.Application;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using MangaReaderApi.Domain.Interfaces.Services.Application;
 
 namespace MangaReaderApi.Application.Services;
 
 public class ServicePdfConversor : IServicePdfConversor
 {
-    public bool CreateChapterPdf(IEnumerable<byte[]> ChapterImagesBytes)
+    public MemoryStream CreateChapterPdf(IEnumerable<byte[]> ChapterImagesBytes)
     {
-        throw new NotImplementedException();
+        using(var pdfStream = new MemoryStream())
+        {
+            using (var doc = new Document(PageSize.A4))
+            {
+                PdfWriter writer = PdfWriter.GetInstance(doc, pdfStream);
+                doc.Open();
+
+                foreach(var image in ChapterImagesBytes)
+                {
+                    Image img = Image.GetInstance(image);
+                    doc.Add(img);
+                }
+                    
+                doc.Close();
+            }
+
+            return pdfStream;
+        }
     }
 }
 

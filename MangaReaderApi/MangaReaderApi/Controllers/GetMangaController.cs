@@ -4,9 +4,9 @@ namespace MangaReaderApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class GetMangaController : ControllerBase
+public class MangaController : ControllerBase
 {
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet(Name = "GetMangaChapter")]
     public bool Get()
     {
         return true;
