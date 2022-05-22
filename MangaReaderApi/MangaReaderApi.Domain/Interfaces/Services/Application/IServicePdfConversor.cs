@@ -2,6 +2,6 @@
 
 public interface IServicePdfConversor
 {
-    MemoryStream CreateChapterPdf(IEnumerable<byte[]> ChapterImagesBytes);
+    MemoryStream CreateChapterPdfWithBytes(IEnumerable<byte[]> ChapterImagesBytes);
 }
 

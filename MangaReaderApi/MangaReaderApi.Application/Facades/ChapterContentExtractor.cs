@@ -18,9 +18,6 @@ public class ChapterContentExtractor : IChapterContentExtractor
 
     public IEnumerable<byte[]> GetChapterImageBytes(GetMangaChapterRequest request)
     {
-        if (request == null)
-            return new List<byte[]>();
-
         IEnumerable<string> chapterImagesUrl = _serviceWebCrawler
             .GetImagesFromChapterRequest(request);
 
