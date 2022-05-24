@@ -7,7 +7,8 @@ namespace MangaReaderApi.Domain.Services;
 public class ServiceSourceResolver : IServiceSourceResolver
 {
     private readonly IServiceJasonReader _serviceJasonReader;
-    private const string JSON_FILE_PATH = "Sources.Json";
+
+    string JSON_FILE_PATH = Environment.CurrentDirectory + "/Sources.json";
 
     public ServiceSourceResolver(IServiceJasonReader serviceJasonReader)
     {
