@@ -20,6 +20,9 @@ public class ServicePdfConversor : IServicePdfConversor
             foreach (var image in ChapterImagesBytes)
             {
                 Image img = Image.GetInstance(image);
+                float scalePercent = (((doc.PageSize.Width / img.Width) * 100) - 4);
+
+                img.ScalePercent(scalePercent);
                 doc.Add(img);
             }
 
