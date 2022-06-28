@@ -15,12 +15,14 @@ public class ServiceSourceResolver : IServiceSourceResolver
         _serviceJasonReader = serviceJasonReader;
     }
 
-    public MangaSource ResolveSource(string sourceName) =>
-        GetSources(JSON_FILE_PATH).Where(e => e.SourceName == sourceName).FirstOrDefault()
-        ?? throw new SourceNotFoundException();
+    public MangaSource ResolveSource(string sourceName)
+    {
+        return GetSources(JSON_FILE_PATH).Where(e => e.SourceName == sourceName).FirstOrDefault()
+            ?? throw new SourceNotFoundException();
 
-    private IList<MangaSource> GetSources(string jsonFilePath) =>
-        _serviceJasonReader.LoadJson(jsonFilePath);
+        IList<MangaSource> GetSources(string jsonFilePath) =>
+            _serviceJasonReader.LoadJson(jsonFilePath);
+    }
 
 }
 
