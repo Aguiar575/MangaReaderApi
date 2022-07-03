@@ -18,9 +18,11 @@ builder.Services.AddTransient<IServiceJasonReader, ServiceJasonReader>();
 builder.Services.AddTransient<IServiceSourceResolver, ServiceSourceResolver>();
 builder.Services.AddTransient<IChapterMangaDtoFactory, ChapterMangaDtoFactory>();
 builder.Services.AddTransient<IServicePdfConversor, ServicePdfConversor>();
+builder.Services.AddTransient<IMangaService, MangaService>();
 
 builder.Services.AddHttpClient<IServiceWebContentReader, ServiceWebContentReader>();
 builder.Services.AddSingleton<IChapterContentExtractor, ChapterContentExtractor>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
