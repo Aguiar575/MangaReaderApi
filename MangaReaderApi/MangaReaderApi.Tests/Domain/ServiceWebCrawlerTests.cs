@@ -6,6 +6,7 @@ using MangaReaderApi.Domain.Exceptions;
 using Moq;
 using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Services.Factories;
+using MangaReaderApi.Tests.Fixture;
 
 namespace MangaReaderApi.Tests.Domain;
 
@@ -17,11 +18,7 @@ public class ServiceWebCrawlerTests
     public void ShouldReturnOnlyOneImageSource()
     {
         MangaSource mangaSource = new MangaSource("MangaSource", "//div/img");
-        var serviceSourceResolver = new Mock<IServiceSourceResolver>();
-        serviceSourceResolver.Setup(sr => sr.ResolveSource(It.IsAny<string>()))
-            .Returns(mangaSource);
-        var chapterMangaDtoFactory = new ChapterMangaDtoFactory(serviceSourceResolver.Object);
-        var mangaRequestDto = chapterMangaDtoFactory.Create(SCRAPE_THIS, "MangaSource");
+        var mangaRequestDto = ChapterDtoFixtureFactory.Create(SCRAPE_THIS, mangaSource);
 
         var sut = new ServiceWebCrawler();
         IEnumerable<string> imageSources = sut
@@ -34,11 +31,7 @@ public class ServiceWebCrawlerTests
     public void ShouldReturnImageNodeNotFoundException()
     {
         MangaSource mangaSource = new MangaSource("MangaSource", "");
-        var serviceSourceResolver = new Mock<IServiceSourceResolver>();
-        serviceSourceResolver.Setup(sr => sr.ResolveSource(It.IsAny<string>()))
-            .Returns(mangaSource);
-        var chapterMangaDtoFactory = new ChapterMangaDtoFactory(serviceSourceResolver.Object);
-        var mangaRequestDto = chapterMangaDtoFactory.Create(SCRAPE_THIS, "MangaSource");
+        var mangaRequestDto = ChapterDtoFixtureFactory.Create(SCRAPE_THIS, mangaSource);
 
         var sut = new ServiceWebCrawler();
         var ex = Assert.Throws<ImageNodeNotFoundException>
