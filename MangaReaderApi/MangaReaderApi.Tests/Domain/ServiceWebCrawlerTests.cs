@@ -12,12 +12,12 @@ public class ServiceWebCrawlerTests
     private const string SCRAPE_THIS = "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html";
 
     [Fact]
-    public void ShouldReturnOnlyOneImageSource()
+    public void GetImagesFromChapterRequest_Should_Return_Only_One_ImageSource()
     {
         MangaSource mangaSource = new MangaSource("MangaSource", "//div/img");
         var mangaRequestDto = ChapterDtoFixtureFactory.Create(SCRAPE_THIS, mangaSource);
-
         var sut = new ServiceWebCrawler();
+
         IEnumerable<string> imageSources = sut
             .GetImagesFromChapterRequest(mangaRequestDto);
 
@@ -25,12 +25,12 @@ public class ServiceWebCrawlerTests
     }
 
     [Fact]
-    public void ShouldReturnImageNodeNotFoundException()
+    public void GetImagesFromChapterRequest_Should_Return_ImageNodeNotFoundException()
     {
         MangaSource mangaSource = new MangaSource("MangaSource", "");
         var mangaRequestDto = ChapterDtoFixtureFactory.Create(SCRAPE_THIS, mangaSource);
-
         var sut = new ServiceWebCrawler();
+        
         var ex = Assert.Throws<ImageNodeNotFoundException>
             (() => sut.GetImagesFromChapterRequest(mangaRequestDto));
 
