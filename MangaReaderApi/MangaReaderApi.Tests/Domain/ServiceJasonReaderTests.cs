@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using MangaReaderApi.Domain.Interfaces.utils;
@@ -19,7 +20,7 @@ public class ServiceJasonReaderTests
         { new MangaSource("SourceName", "//div/img") };
 
     [Fact]
-    public void ShouldReturnEmptyDtoList()
+    public void GetReader_Should_Return_Empty_Dto_List()
     {
         var reader = new Mock<IReader>();
         var sut = new ServiceJasonReader(reader.Object);
@@ -29,7 +30,18 @@ public class ServiceJasonReaderTests
     }
 
     [Fact]
-    public void ShouldReturnDtoList()
+    public void GetReader_Should_Return_Empty_Dto_List_When_Throws_Exception()
+    {
+        var reader = new Mock<IReader>();
+        reader.Setup(sr => sr.GetReader(It.IsAny<string>())).Throws<Exception>();
+        var sut = new ServiceJasonReader(reader.Object);
+
+        IList<MangaSource> dtoList = sut.LoadJson("");
+        Assert.Empty(dtoList);
+    }
+
+    [Fact]
+    public void GetReader_Should_Return_Dto_List()
     {
         var reader = new Mock<IReader>();
         reader.Setup(sr => sr.GetReader(It.IsAny<string>())).Returns(() => new StreamReader(fakeMemoryStream));
