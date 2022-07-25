@@ -15,7 +15,7 @@ public class ServicePdfConversorTests : AssemblyLocationHelper
         string verticalMangaPage = FindFileByRelativePath("/TestFiles/vertical_manga_page.png");
 
         var _reader = new Reader();
-        var _servicePdfConversor = new ServicePdfConversor();
+        var _servicePdfConversor = new ServiceKindlePdfConversor();
 
         using (var rd = _reader.GetReader(verticalMangaPage))
         {

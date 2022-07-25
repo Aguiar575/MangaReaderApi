@@ -17,7 +17,7 @@ builder.Services.AddTransient<IServiceWebCrawler, ServiceWebCrawler>();
 builder.Services.AddTransient<IServiceJasonReader, ServiceJasonReader>();
 builder.Services.AddTransient<IServiceSourceResolver, ServiceSourceResolver>();
 builder.Services.AddTransient<IChapterMangaDtoFactory, ChapterMangaDtoFactory>();
-builder.Services.AddTransient<IServicePdfConversor, ServicePdfConversor>();
+builder.Services.AddTransient<IServicePdfConversor, ServiceKindlePdfConversor>();
 builder.Services.AddTransient<IMangaService, MangaService>();
 
 builder.Services.AddHttpClient<IServiceWebContentReader, ServiceWebContentReader>();

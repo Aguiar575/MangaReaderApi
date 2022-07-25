@@ -4,7 +4,7 @@ using MangaReaderApi.Domain.Interfaces.Services.Application;
 
 namespace MangaReaderApi.Application.Services;
 
-public class ServicePdfConversor : IServicePdfConversor
+public class ServiceKindlePdfConversor : IServicePdfConversor
 {
     public MemoryStream CreateChapterPdfWithBytes(IEnumerable<byte[]> ChapterImagesBytes)
     {
