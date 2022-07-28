@@ -1,5 +1,5 @@
-﻿using MangaReaderApi.Domain.Dto;
-using MangaReaderApi.Domain.Interfaces.Services.Application;
+﻿using MangaReaderApi.Application.Interfaces.Services;
+using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +19,11 @@ public class MangaController : ControllerBase
         _mangaService = mangaService;
     }
 
-    [HttpPost(Name = "GetMangaChapter")]
+    [HttpPost(Name = "GetMangaChapterKindle")]
     public FileResult Post(string source, string chapterUrl)
     {
         GetMangaChapterRequest request = _chapterMangaDtoFactory.Create(chapterUrl, source);
-        var chapterFile = _mangaService.GetChapter(request);
+        var chapterFile = _mangaService.GetPdfChapter(request);
 
         return File(chapterFile, "application/pdf", "chapter.pdf");
     }

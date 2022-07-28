@@ -1,6 +1,6 @@
-﻿using MangaReaderApi.Application.Services;
+﻿using MangaReaderApi.Application.Interfaces.Services;
+using MangaReaderApi.Application.Services;
 using MangaReaderApi.Domain.Interfaces.Facades.Application;
-using MangaReaderApi.Domain.Interfaces.Services.Application;
 using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
 using MangaReaderApi.Domain.Interfaces.utils;

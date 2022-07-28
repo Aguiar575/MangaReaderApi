@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using MangaReaderApi.Application.Interfaces.Services;
 using MangaReaderApi.Application.Services;
 using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Exceptions;
 using MangaReaderApi.Domain.Interfaces.Facades.Application;
-using MangaReaderApi.Domain.Interfaces.Services.Application;
 using MangaReaderApi.Domain.ValueObjects;
 using MangaReaderApi.Tests.Fixture;
 using MangaReaderApi.Tests.TestHelpers;
@@ -28,7 +28,7 @@ public class MangaServiceTests : AssemblyLocationHelper
         MangaSource mangaSource = new MangaSource("MangaSource", "//div/img");
         var mangaRequestDto = ChapterDtoFixtureFactory.Create("SomeUrl", mangaSource);
 
-        Assert.Throws<CouldNotRenderChapterException>(() => sut.GetChapter(mangaRequestDto));
+        Assert.Throws<CouldNotRenderChapterException>(() => sut.GetPdfChapter(mangaRequestDto));
     }
 }
 

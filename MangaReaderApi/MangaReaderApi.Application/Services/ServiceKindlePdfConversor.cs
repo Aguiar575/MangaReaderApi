@@ -1,6 +1,6 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using MangaReaderApi.Domain.Interfaces.Services.Application;
+using MangaReaderApi.Application.Interfaces.Services;
 
 namespace MangaReaderApi.Application.Services;
 

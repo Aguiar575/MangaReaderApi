@@ -1,4 +1,4 @@
-﻿namespace MangaReaderApi.Domain.Interfaces.Services.Application;
+﻿namespace MangaReaderApi.Application.Interfaces.Services;
 
 public interface IServicePdfConversor
 {
