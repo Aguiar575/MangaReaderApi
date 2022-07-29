@@ -1,6 +1,6 @@
 ﻿using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Interfaces.Facades.Application;
-using MangaReaderApi.Domain.Interfaces.Services.Domain;
+using MangaReaderApi.Domain.Interfaces.Services;
 
 namespace MangaReaderApi.Application.Services;
 

@@ -3,8 +3,8 @@ using MangaReaderApi.Domain.Services;
 using MangaReaderApi.Domain.Exceptions;
 using Moq;
 using Xunit;
-using MangaReaderApi.Domain.Interfaces.Services.Domain;
 using MangaReaderApi.Domain.ValueObjects;
+using MangaReaderApi.Domain.Interfaces.Services;
 
 namespace MangaReaderApi.Tests.Domain;
 

@@ -1,7 +1,7 @@
-﻿using MangaReaderApi.Domain.Interfaces.Services.Domain;
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
 using MangaReaderApi.Domain.Dto;
 using MangaReaderApi.Domain.Exceptions;
+using MangaReaderApi.Domain.Interfaces.Services;
 
 namespace MangaReaderApi.Domain.Services;
 

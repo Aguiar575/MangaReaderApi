@@ -1,4 +1,4 @@
-namespace MangaReaderApi.Application.Enum;
+namespace MangaReaderApi.Domain.Enum;
 
 public enum DeviceFileFormats
 {

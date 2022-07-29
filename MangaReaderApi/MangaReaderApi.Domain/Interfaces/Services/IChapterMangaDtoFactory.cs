@@ -1,6 +1,6 @@
 ﻿using MangaReaderApi.Domain.Dto;
 
-namespace MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
+namespace MangaReaderApi.Domain.Interfaces.Services;
 
 public interface IChapterMangaDtoFactory
 {

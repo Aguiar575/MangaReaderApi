@@ -1,6 +1,6 @@
 ﻿using MangaReaderApi.Application.Interfaces.Services;
 using MangaReaderApi.Domain.Dto;
-using MangaReaderApi.Domain.Interfaces.Services.Domain.Factories;
+using MangaReaderApi.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MangaReaderApi.Controllers;

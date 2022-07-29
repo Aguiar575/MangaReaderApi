@@ -1,6 +1,6 @@
 ﻿using MangaReaderApi.Domain.ValueObjects;
 
-namespace MangaReaderApi.Domain.Interfaces.Services.Domain;
+namespace MangaReaderApi.Domain.Interfaces.Services;
 
 public interface IServiceSourceResolver
 {
