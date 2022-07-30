@@ -24,7 +24,7 @@ public class MangaController : ControllerBase
     public FileResult Post(string source, string chapterUrl)
     {
         GetMangaChapterRequest request = _chapterMangaDtoFactory.Create(chapterUrl, source);
-        var chapterFile = _mangaService.GetPdfChapter(request, DeviceFileFormats.Kindle);
+        byte[] chapterFile = _mangaService.GetPdfChapter(request, DeviceFileFormats.Kindle);
 
         return File(chapterFile, "application/pdf", "chapter.pdf");
     }
