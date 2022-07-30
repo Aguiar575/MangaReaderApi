@@ -1,5 +1,6 @@
 ﻿using MangaReaderApi.Application.Interfaces.Services;
 using MangaReaderApi.Domain.Dto;
+using MangaReaderApi.Domain.Enum;
 using MangaReaderApi.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,7 @@ public class MangaController : ControllerBase
     public FileResult Post(string source, string chapterUrl)
     {
         GetMangaChapterRequest request = _chapterMangaDtoFactory.Create(chapterUrl, source);
-        var chapterFile = _mangaService.GetPdfChapter(request);
+        var chapterFile = _mangaService.GetPdfChapter(request, DeviceFileFormats.Kindle);
 
         return File(chapterFile, "application/pdf", "chapter.pdf");
     }
