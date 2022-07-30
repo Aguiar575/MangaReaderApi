@@ -1,4 +1,5 @@
-﻿using MangaReaderApi.Application.Interfaces.Services;
+﻿using MangaReaderApi.Application.Factory;
+using MangaReaderApi.Application.Interfaces.Services;
 using MangaReaderApi.Application.Services;
 using MangaReaderApi.Domain.Interfaces.Facades.Application;
 using MangaReaderApi.Domain.Interfaces.Services;
@@ -18,6 +19,7 @@ builder.Services.AddTransient<IServiceSourceResolver, ServiceSourceResolver>();
 builder.Services.AddTransient<IChapterMangaDtoFactory, ChapterMangaDtoFactory>();
 builder.Services.AddTransient<IServicePdfConversor, ServiceKindlePdfConversor>();
 builder.Services.AddTransient<IMangaService, MangaService>();
+builder.Services.AddTransient<IPdfConversorServiceStrategy, PdfConversorServiceStrategy>();
 
 builder.Services.AddHttpClient<IServiceWebContentReader, ServiceWebContentReader>();
 builder.Services.AddSingleton<IChapterContentExtractor, ChapterContentExtractor>();

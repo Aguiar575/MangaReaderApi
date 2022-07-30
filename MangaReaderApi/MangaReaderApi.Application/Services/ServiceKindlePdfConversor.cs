@@ -1,11 +1,14 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MangaReaderApi.Application.Interfaces.Services;
+using MangaReaderApi.Domain.Enum;
 
 namespace MangaReaderApi.Application.Services;
 
 public class ServiceKindlePdfConversor : IServicePdfConversor
 {
+    public DeviceFileFormats deviceFormat => DeviceFileFormats.Kindle;
+
     public MemoryStream CreateChapterPdfWithBytes(IEnumerable<byte[]> ChapterImagesBytes)
     {
         var pdfStream = new MemoryStream();
