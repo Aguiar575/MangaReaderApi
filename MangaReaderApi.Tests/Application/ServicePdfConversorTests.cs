@@ -4,13 +4,15 @@ using MangaReaderApi.Application.Services;
 using MangaReaderApi.Domain.utils;
 using MangaReaderApi.Tests.TestHelpers;
 using Xunit;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MangaReaderApi.Tests.Application;
 
 public class ServicePdfConversorTests : AssemblyLocationHelper
 {
     [Fact]
-    public void ShouldReturnPdfNotEmptyMemoryStream()
+    public async Task ShouldReturnPdfNotEmptyMemoryStreamAsync()
     {
         string verticalMangaPage = FindFileByRelativePath("/TestFiles/vertical_manga_page.png");
 
@@ -20,7 +22,7 @@ public class ServicePdfConversorTests : AssemblyLocationHelper
         using (var rd = _reader.GetReader(verticalMangaPage))
         {
             var bytes = new List<byte[]>() { _reader.StreamReaderToArray(rd) };
-            using (MemoryStream mangaChapterPdf = _servicePdfConversor.CreateChapterPdfWithBytes(bytes))
+            using (MemoryStream mangaChapterPdf = await _servicePdfConversor.CreateChapterPdfWithBytesAsync(bytes.ToAsyncEnumerable()))
             {
                 Assert.True(mangaChapterPdf.Length > 0);
             }

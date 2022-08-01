@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using MangaReaderApi.Domain.Exceptions;
 using MangaReaderApi.Domain.Services;
@@ -49,8 +50,8 @@ public class ServiceWebContentReaderTests
         var sut = new ServiceWebContentReader(httpClientFactory.Object);
 
         List<string> images = new List<string> { IMAGE_URL };
-        IEnumerable<byte[]> bytes = sut.GetAllImageBytes(images);
+        IAsyncEnumerable<byte[]> bytes = sut.GetAllImageBytes(images);
 
-        Assert.NotEmpty(bytes);
+        Assert.NotEmpty(bytes.ToEnumerable());
     }
 }

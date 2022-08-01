@@ -4,6 +4,6 @@ namespace MangaReaderApi.Domain.Interfaces.Facades.Application;
 
 public interface IChapterContentExtractor
 {
-    IEnumerable<byte[]> GetChapterImageBytes(GetMangaChapterRequest request);
+    IAsyncEnumerable<byte[]> GetChapterImageBytes(GetMangaChapterRequest request);
 }
 

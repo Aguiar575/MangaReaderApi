@@ -18,11 +18,11 @@ public class MangaService : IMangaService
         _pdfConversorServiceStrategy = pdfConversorServiceStrategy;
     }
 
-    public byte[] GetPdfChapter(GetMangaChapterRequest request, DeviceFileFormats format)
+    public async Task<byte[]> GetPdfChapterAsync(GetMangaChapterRequest request, DeviceFileFormats format)
     {   
-        IEnumerable<byte[]> chapterContent = _chapterContentExtractor.GetChapterImageBytes(request);
+        IAsyncEnumerable<byte[]> chapterContent = _chapterContentExtractor.GetChapterImageBytes(request);
 
-        using (var chapterFile = _pdfConversorServiceStrategy.CreateChapterPdfWithBytes(chapterContent, format))
+        using (var chapterFile = await _pdfConversorServiceStrategy.CreateChapterPdfWithBytesAsync(chapterContent, format))
         {
             return chapterFile.ToArray();
         }

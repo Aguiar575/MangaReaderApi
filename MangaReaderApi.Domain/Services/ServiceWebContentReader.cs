@@ -18,9 +18,11 @@ public class ServiceWebContentReader : IServiceWebContentReader
         try
         {
             HttpResponseMessage response = await _httpClient.GetAsync(imageUrl);
-            if (response.IsSuccessStatusCode
-                && response.Content.ReadAsByteArrayAsync().Result.IsImage())
-                return response.Content.ReadAsByteArrayAsync().Result;
+
+            byte[] bytesOfResponse = await response.Content.ReadAsByteArrayAsync();
+
+            if (response.IsSuccessStatusCode && bytesOfResponse.IsImage())
+                return bytesOfResponse;
         }
         catch
         {
@@ -30,23 +32,12 @@ public class ServiceWebContentReader : IServiceWebContentReader
         return new byte[] { };
     }
 
-    public IEnumerable<byte[]> GetAllImageBytes(IEnumerable<string> images)
+    public async IAsyncEnumerable<byte[]> GetAllImageBytes(IEnumerable<string> images)
     {
-        List<byte[]> bytes = new List<byte[]>();
-
-        var tasks = new List<Task>();
         foreach (var image in images)
-            tasks.Add(Task.Run(() => bytes.Add(GetImageBytes(image).Result)));
-
-        try
         {
-            Task.WaitAll(tasks.ToArray());
+            byte[] bytesOfImage = await GetImageBytes(image);
+            yield return bytesOfImage;
         }
-        catch
-        {
-            throw new ImageUrlNotFoundException();
-        }
-
-        return bytes;
     }
 }

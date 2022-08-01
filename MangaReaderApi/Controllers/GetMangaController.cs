@@ -21,10 +21,10 @@ public class MangaController : ControllerBase
     }
 
     [HttpPost(Name = "GetMangaChapterKindle")]
-    public FileResult Post(string source, string chapterUrl)
+    public async Task<FileResult> PostAsync(string source, string chapterUrl)
     {
         GetMangaChapterRequest request = _chapterMangaDtoFactory.Create(chapterUrl, source);
-        byte[] chapterFile = _mangaService.GetPdfChapter(request, DeviceFileFormats.Kindle);
+        byte[] chapterFile = await _mangaService.GetPdfChapterAsync(request, DeviceFileFormats.Kindle);
 
         return File(chapterFile, "application/pdf", "chapter.pdf");
     }

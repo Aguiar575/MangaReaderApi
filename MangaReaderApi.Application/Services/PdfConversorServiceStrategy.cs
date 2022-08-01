@@ -13,14 +13,14 @@ public class PdfConversorServiceStrategy : IPdfConversorServiceStrategy
         _servicePdfConversors = servicePdfConversors;
     }
 
-    public MemoryStream CreateChapterPdfWithBytes(
-        IEnumerable<byte[]> chapterImagesBytes,
+    public async Task<MemoryStream> CreateChapterPdfWithBytesAsync(
+        IAsyncEnumerable<byte[]> chapterImagesBytes,
         DeviceFileFormats format) 
         {
             var conversor = GetConversor(format);
             
             if(conversor is not null)
-                return conversor.CreateChapterPdfWithBytes(chapterImagesBytes);
+                return await conversor.CreateChapterPdfWithBytesAsync(chapterImagesBytes);
 
             return new MemoryStream();
 

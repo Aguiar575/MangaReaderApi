@@ -5,6 +5,6 @@ namespace MangaReaderApi.Application.Interfaces.Services;
 
 public interface IMangaService
 {
-    byte[] GetPdfChapter(GetMangaChapterRequest request, DeviceFileFormats format);
+    Task<byte[]> GetPdfChapterAsync(GetMangaChapterRequest request, DeviceFileFormats format);
 }
 

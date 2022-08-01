@@ -9,7 +9,7 @@ public class ServiceKindlePdfConversor : IServicePdfConversor
 {
     public DeviceFileFormats deviceFormat => DeviceFileFormats.Kindle;
 
-    public MemoryStream CreateChapterPdfWithBytes(IEnumerable<byte[]> ChapterImagesBytes)
+    public async Task<MemoryStream> CreateChapterPdfWithBytesAsync(IAsyncEnumerable<byte[]> ChapterImagesBytes)
     {
         var pdfStream = new MemoryStream();
 
@@ -20,7 +20,7 @@ public class ServiceKindlePdfConversor : IServicePdfConversor
 
             doc.Open();
 
-            foreach (var image in ChapterImagesBytes)
+            await foreach (var image in ChapterImagesBytes)
             {
                 Image img = Image.GetInstance(image);
                 float scalePercent = (((doc.PageSize.Width / img.Width) * 100) - 4);

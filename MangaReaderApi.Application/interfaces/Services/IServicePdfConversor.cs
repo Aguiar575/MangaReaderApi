@@ -6,6 +6,6 @@ namespace MangaReaderApi.Application.Interfaces.Services;
 public interface IServicePdfConversor
 {
     DeviceFileFormats deviceFormat { get; }
-    MemoryStream CreateChapterPdfWithBytes(IEnumerable<byte[]> ChapterImagesBytes);
+    Task<MemoryStream> CreateChapterPdfWithBytesAsync(IAsyncEnumerable<byte[]> ChapterImagesBytes);
 }
 
