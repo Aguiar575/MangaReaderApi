@@ -453,3 +453,8 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+##
+## stryker
+## 
+MangaReaderApi.Tests/StrykerOutput
