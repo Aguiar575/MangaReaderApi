@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
@@ -17,13 +19,5 @@
     <None Remove="HtmlAgilityPack" />
     <None Remove="Application\Services\Adapters\" />
     <None Remove="Newtonsoft.Json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MangaReaderApi.Domain\MangaReaderApi.Domain.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\MangaReaderApi.Application\MangaReaderApi.Application.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
   </ItemGroup>
 </Project>
